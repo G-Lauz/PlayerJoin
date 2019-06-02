@@ -1,0 +1,7 @@
+name: PlayerJoin
+version: 1.0.0
+author: Freebuild
+api-version: 1.13
+depend: []
+description: Plugin that display custom message on player join
+main: fr.freebuild.playerjoin.PlayerJoin
