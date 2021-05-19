@@ -10,7 +10,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <spigot.version>1.14.1-R0.1-SNAPSHOT</spigot.version>
+    <spigot.version>1.16.5-R0.1-SNAPSHOT</spigot.version>
   </properties>
   <build>
     <finalName>${project.name}-${project.version}</finalName>
@@ -21,6 +21,21 @@
         <directory>${basedir}/src/main/resources</directory>
       </resource>
     </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.4</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
   <repositories>
     <repository>
@@ -28,8 +43,8 @@
       <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
     <repository>
-      <id>lombok-repo</id>
-      <url>https://mvnrepository.com/artifact/org.projectlombok/lombok</url>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
     </repository>
   </repositories>
   <dependencies>
@@ -46,6 +61,12 @@
       <artifactId>spigot-api</artifactId>
       <version>${spigot.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <!-- PluginMessageManager-API -->
+    <dependency>
+      <groupId>com.github.G-Lauz.PluginMessageManager</groupId>
+      <artifactId>PluginMessageManager-API</artifactId>
+      <version>jitpack-dev-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>
